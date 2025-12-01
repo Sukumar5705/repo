@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Feedback / Contact</title>
+<style>
+  body{font-family:system-ui;margin:2rem;max-width:640px}
+  form{display:grid;gap:12px}
+  input,textarea{padding:.7rem;border:1px solid #ccc;border-radius:8px}
+  button{padding:.8rem 1rem;border:0;border-radius:10px;background:#2563eb;color:#fff;cursor:pointer}
+</style>
+<h1>Feedback / Contact</h1>
+<form id="f">
+  <label>Name <input name="name" required></label>
+  <label>Email <input type="email" name="email" required></label>
+  <label>Subject <input name="subject" required></label>
+  <label>Message <textarea name="message" rows="5" required></textarea></label>
+  <button>Send</button>
+</form>
+<script>
+  document.getElementById('f').addEventListener('submit', e=>{
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    alert('Thanks! Captured:\n' + JSON.stringify(data, null, 2)); // demo only
+  });
+</script>
